@@ -6,7 +6,7 @@ This is a vulnerable application to test the exploit for the **Spring Break** vu
 
 **This application contains serious security vulnerabilities. Run it at your own risk! It is recommended using a backed-up and sheltered environment (such as a VM with a recent snapshot and host-only networking). Do not upload this application to any Internet facing servers, as they will be compromised.**
 
-** *DISCLAIMER*: I do not take responsibility for the way in which any one uses this application (SpringBreakVulnerableApp). The only purpose of this application is to be a test scenario for the Spring Break exploit and it should not be used maliciously. If your server is compromised via an installation of SpringBreakVulnerableApp it is not my responsibility, it is the responsibility of the person(s) who uploaded and installed it.**
+***DISCLAIMER*: I do not take responsibility for the way in which any one uses this application (SpringBreakVulnerableApp). The only purpose of this application is to be a test scenario for the Spring Break exploit and it should not be used maliciously. If your server is compromised via an installation of SpringBreakVulnerableApp it is not my responsibility, it is the responsibility of the person(s) who uploaded and installed it.**
 
 ## Vulnerability info
 
