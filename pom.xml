@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>SpringBreakVulnerableApp</groupId>
   <artifactId>SpringBreakVulnerableApp</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>1.0</version>
   <name>SpringBreakVulnerableApp</name>
   <description>This is a vulnerable application to test Spring Break exploit. Run it at your own risk!</description>
   <build>
@@ -57,4 +57,5 @@
       <version>1.4.196</version>
     </dependency>
   </dependencies>
+  <url>https://github.com/m3ssap0/SpringBreakVulnerableApp</url>
 </project>
