@@ -21,6 +21,12 @@ The application can be launched with the following Maven command.
 ```
 mvn spring-boot:run
 ```
+A fat jar can be generated with the following Maven command.
+
+```
+mvn clean install spring-boot:repackage
+```
+
 To insert data you can use the following curl command.
 
 ```
