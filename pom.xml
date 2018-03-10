@@ -58,5 +58,5 @@
     </dependency>
   </dependencies>
   <url>https://github.com/m3ssap0/SpringBreakVulnerableApp</url>
-  <packaging>war</packaging>
+  <packaging>jar</packaging>
 </project>
